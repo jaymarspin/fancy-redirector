@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirect Notice</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #0f0f0f;
+        font-family: "Arial", sans-serif;
+        color: #fff;
+        overflow: hidden;
+      }
+      .subtitle {
+        font-size: 1rem;
+        color: #888;
+        margin-bottom: 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 1s ease forwards 0.5s;
+      }
+      .container {
+        text-align: center;
+        position: relative;
+        padding: 2rem;
+      }
+
+      .message {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 1s ease forwards;
+      }
+
+      .redirect-link {
+        display: inline-block;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        color: #fff;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 30px;
+        border: 2px solid #fff;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .redirect-link:hover {
+        background: #fff;
+        color: #0f0f0f;
+        transform: scale(1.05);
+      }
+
+      .particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      }
+
+      .particle {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background: #fff;
+        border-radius: 50%;
+        animation: float 8s infinite;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) translateX(0);
+          opacity: 0;
+        }
+        50% {
+          transform: translateY(-100px) translateX(50px);
+          opacity: 0.5;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="particles">
+      <script>
+        for (let i = 0; i < 20; i++) {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.top = Math.random() * 100 + "%";
+          particle.style.animationDelay = Math.random() * 8 + "s";
+          document.querySelector(".particles").appendChild(particle);
+        }
+      </script>
+    </div>
+    <div class="container">
+      <div class="message">The system has been redirected to this link</div>
+      <div class="subtitle">
+        This action is initiated by the IT for continuous enhancement of the
+        system and ensure smooth operations
+      </div>
+      <a href="https://google.com" class="redirect-link">Continue to Site</a>
+    </div>
+  </body>
+</html>
